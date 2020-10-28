@@ -42,13 +42,9 @@ TEST(test, SimpleTest) {
     EXPECT_EQ(seq_size, parallel_result->size);
 
     free_longest_seq(consistent_result);
-    consistent_result = NULL;
     free_longest_seq(parallel_result);
-    parallel_result = NULL;
     free(expected_seq);
-    expected_seq = NULL;
     free(test_array);
-    test_array = NULL;
 }
 
 TEST(test, NoQuotesTest) {

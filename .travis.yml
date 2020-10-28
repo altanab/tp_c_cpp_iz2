@@ -22,5 +22,6 @@ script:
   - cd build
   - cmake ..
   - cmake --build .
-  - valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all -v ctest
+  - cd test
+  - valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all -v test_tests
   - lcov --directory . --capture --output-file coverage.info
