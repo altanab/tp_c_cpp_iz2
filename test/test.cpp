@@ -30,7 +30,7 @@ TEST(test, SimpleTest) {
     char *test_array = (char *)malloc(arr_size);
     memcpy(test_array, input_array, arr_size);
     size_t seq_size = 5;
-    char *expected_seq = (char *)malloc(5);
+    char *expected_seq = (char *)malloc(seq_size);
     memcpy(expected_seq, input_array + 6, seq_size);
 
     longest_sequence *consistent_result = find_seq(test_array, arr_size);
@@ -100,7 +100,7 @@ TEST(test, SeveralQuotesTest) {
     char *test_array = (char *)malloc(arr_size);
     memcpy(test_array, input_array, arr_size);
     size_t seq_size = 5;
-    char *expected_seq = (char *)malloc(5);
+    char *expected_seq = (char *)malloc(seq_size);
     memcpy(expected_seq, input_array + 5, seq_size);
 
     longest_sequence *consistent_result = find_seq(test_array, arr_size);
@@ -140,7 +140,7 @@ TEST(test, SeveralQuotesTest2) {
     char *test_array = (char *)malloc(arr_size);
     memcpy(test_array, input_array, arr_size);
     size_t seq_size = 5;
-    char *expected_seq = (char *)malloc(5);
+    char *expected_seq = (char *)malloc(seq_size);
     memcpy(expected_seq, input_array + 9, seq_size);
 
     longest_sequence *consistent_result = find_seq(test_array, arr_size);
