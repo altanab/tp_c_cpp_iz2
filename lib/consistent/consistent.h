@@ -13,6 +13,8 @@ typedef struct {
     bool quotes_in_array;
 } longest_sequence;
 
+
+longest_sequence  *create_seq(char *array, size_t seq_size, bool opened_q, bool quotes);
 longest_sequence *find_seq(char *array, size_t arr_size);
 void free_longest_seq(longest_sequence *seq);
 void print_longest_seq(longest_sequence *seq);

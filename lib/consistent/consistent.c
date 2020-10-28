@@ -1,5 +1,17 @@
 #include "consistent.h"
 
+
+longest_sequence  *create_seq(char *array, size_t seq_size, bool opened_q, bool quotes) {
+    longest_sequence *seq = (longest_sequence *)malloc(sizeof(longest_sequence));
+    if (seq == NULL)
+        return NULL;
+    seq->array = array;
+    seq->size = seq_size;
+    seq->opened_quote = opened_q;
+    seq->quotes_in_array = quotes;
+    return seq;
+}
+
 longest_sequence *find_seq(char *array, size_t arr_size) {
     if (array == NULL)
         return NULL;
@@ -45,8 +57,10 @@ longest_sequence *find_seq(char *array, size_t arr_size) {
 void free_longest_seq(longest_sequence *seq) {
     if (seq == NULL)
         return;
-    if(seq->array != NULL)
+    if(seq->array != NULL) {
         free(seq->array);
+        seq->array = NULL;
+    }
     free(seq);
 }
 
@@ -57,3 +71,4 @@ void print_longest_seq(longest_sequence *seq) {
     }
     printf("%s", seq->array);
 }
+

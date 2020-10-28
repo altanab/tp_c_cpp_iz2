@@ -57,11 +57,9 @@ void *find_longest_seq(void *arg) {
 }
 
 longest_sequence *longest_seq_in_pthread_data(pthread_data *thread_data, size_t num_threads) {
-    size_t longest_seq_size = 0;
-    longest_sequence *longest_seq = NULL;
+    longest_sequence *longest_seq = create_seq(NULL, 0, false, false);
     for (size_t i = 0; i < num_threads; ++i) {
-        if (thread_data[i].seq->size > longest_seq_size) {
-            longest_seq_size = thread_data[i].seq->size;
+        if (thread_data[i].seq->size > longest_seq->size) {
             free_longest_seq(longest_seq);
             longest_seq = thread_data[i].seq;
         }
