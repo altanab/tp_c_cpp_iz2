@@ -1,0 +1,26 @@
+language: c
+
+os: linux
+
+compiler:
+  - gcc
+
+addons:
+  apt:
+    packages:
+      - valgrind
+      - cppcheck
+      - make
+      - cmake
+      - lcov
+      - doxygen
+      - help2man
+
+script:
+  - cppcheck --error-exitcode=1 --enable=warning,performance,information,style src/*.c lib/consistent/*.c lib/parallel/*.c test/*.cpp
+  - mkdir build
+  - cd build
+  - cmake ..
+  - cmake --build .
+  - valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all test/test_tests
+  - lcov --directory . --capture --output-file coverage.info
